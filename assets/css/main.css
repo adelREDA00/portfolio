@@ -104,6 +104,9 @@
 
 
 
+
+
+
 /*-----------------------------------*\
   #CLIENT
 \*-----------------------------------*/
@@ -116,9 +119,6 @@
 .client .slider-item { min-width: calc(50% - 15px); }
 
 .client .slider::-webkit-scrollbar { display: none; }
-
-
-
 
 
 /*-----------------------------------*\
@@ -157,6 +157,56 @@
 }
 
 
+.Nslider{
+  overflow: hidden;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  box-shadow: -1px 5px 15px var(--maximum-yellow-red_a10);
+}
+
+.about-banner{
+  width: 100%;
+  display: flex;
+  animation: moveSlideshow 80s linear infinite;
+  animation-delay: 4s;
+
+}
+
+
+@keyframes moveSlideshow {
+  100% { 
+    transform: translateX(-600%);  
+  }
+}
+
+/*Animation activated by keyframes*/
+@keyframes slide{
+  0%{
+      transform: translateX(0);
+  }
+  25%{
+      transform: translateX(0);
+  }
+  30%{
+      transform: translateX(-100%);
+  }
+  50%{
+      transform: translateX(-100%);
+  }
+  55%{
+      transform: translateX(-200%);
+  }
+  75%{
+      transform: translateX(-200%);
+  }
+  80%{
+      transform: translateX(-300%);
+  }
+  100%{
+      transform: translateX(-300%);
+  }
+  
+}
 
 
 
@@ -174,6 +224,7 @@
 .skill-list {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
+  margin-bottom: 2rem;
 }
 
 .skill .card ion-icon { font-size: 3rem; }
@@ -217,7 +268,7 @@
 
 /*-----------------------------------*\
   #TESTIMONIALS
-\*-----------------------------------*/
+
 
 .testi .slider-item {
   min-width: 100%;
@@ -265,7 +316,7 @@
 .testi .slider::-webkit-scrollbar-button { width: calc(25% - 20px); }
 
 
-
+\*-----------------------------------*/
 
 
 /*-----------------------------------*\
@@ -290,8 +341,6 @@
     max-width: max-content;
     margin-inline: auto;
   }
-
-
 
   /**
    * CTA
@@ -406,3 +455,8 @@
   .about-list { gap: 40px; }
 
 }
+
+.blink{
+  color: blue;
+ }
+ 

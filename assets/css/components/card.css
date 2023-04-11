@@ -64,6 +64,9 @@
   place-items: center;
   flex-shrink: 0;
 }
+.bx{
+  font-size: 3.5rem;
+}
 
 
 

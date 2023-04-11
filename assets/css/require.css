@@ -38,7 +38,7 @@
   --maximum-yellow-red: hsl(41, 99%, 64%);
   --orange-red_a20: hsla(19, 100%, 55%, 0.2);
   --eerie-black: hsl(210, 11%, 15%);
-  --orange-red: hsl(19, 100%, 55%);
+  --orange-red: #000000;
   --davys-gray: hsl(0, 0%, 33%);
   --white_a80: hsla(0, 0%, 100%, 0.8);
   --white_a75: hsla(0, 0%, 100%, 0.75);
@@ -129,6 +129,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.blink{
+  text-decoration: underline;
+  color: blue;
+  font-size: 1.5rem;
+}
 
 img { height: auto; }
 
@@ -160,10 +165,9 @@ body {
   color: var(--davys-gray);
   font-size: 1.6rem;
   line-height: 1.5;
-  overflow: hidden;
 }
 
-body.loaded { overflow: visible; }
+
 
 :focus-visible { outline-offset: 4px; }
 
@@ -269,9 +273,7 @@ body.loaded { overflow: visible; }
 
 /*-----------------------------------*\
   #PRELOADER
-\*-----------------------------------*/
-
-.preloader {
+  .preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -299,6 +301,9 @@ body.loaded { overflow: visible; }
   100% { transform: rotate(1turn); }
 }
 
+\*-----------------------------------*/
+
+
 
 
 
@@ -324,7 +329,7 @@ body.loaded { overflow: visible; }
 
 .header .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -376,6 +381,128 @@ body.loaded { overflow: visible; }
 .navbar-link:is(:hover, :focus-visible, .active) { color: var(--orange-red); }
 
 
+#webapp_cover {
+  right: 0;
+  left: 0;
+  width: 39px;
+  margin: 0 auto;
+}
+
+#menu_button {
+  width: 39px;
+  overflow: hidden;
+}
+
+#menu_checkbox {
+  display: none;
+}
+
+#menu_label {
+  position: relative;
+  display: block;
+  height: 29px;
+  cursor: pointer;
+}
+
+#menu_label:before,
+#menu_label:after,
+#menu_text_bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--orange-red);
+}
+
+#menu_label:before,
+#menu_label:after {
+  content: "";
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) left;
+}
+
+#menu_label:before {
+  top: 0;
+}
+
+#menu_label:after {
+  top: 12px;
+}
+
+#menu_text_bar {
+  top: 24px;
+}
+
+#menu_text_bar:before {
+  content: "MENU";
+  position: absolute;
+  top: 5px;
+  right: 0;
+  left: 0;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: var( --ff-jost);
+  text-align: center;
+}
+
+#menu_checkbox:checked + #menu_label:before {
+  left: -39px;
+}
+
+#menu_checkbox:checked + #menu_label:after {
+  left: 39px;
+}
+
+#menu_checkbox:checked + #menu_label #menu_text_bar:before {
+  animation: moveUpThenDown 0.8s ease 0.2s forwards,
+    shakeWhileMovingUp 0.8s ease 0.2s forwards,
+    shakeWhileMovingDown 0.2s ease 0.8s forwards;
+}
+
+@keyframes moveUpThenDown {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -27px;
+  }
+  100% {
+    top: -14px;
+  }
+}
+
+@keyframes shakeWhileMovingUp {
+  0% {
+    transform: rotateZ(0);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(10deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes shakeWhileMovingDown {
+  0% {
+    transform: rotateZ(0);
+  }
+  80% {
+    transform: rotateZ(3deg);
+  }
+  90% {
+    transform: rotateZ(-3deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
 
 
 

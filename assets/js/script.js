@@ -1,6 +1,13 @@
-'use strict';
+
+//const preloader = document.querySelector("[data-preloader]");
 
 
+const navbar = document.querySelector("[data-navbar]");
+const btn = document.querySelector("#menu_label");
+const cards = document.querySelectorAll(".card-sm");
+
+
+const header = document.querySelector("[data-header]");
 
 /**
  * Add eventListener on multiple elements
@@ -18,26 +25,36 @@ const addEventOnElements = function (elements, eventType, callback) {
  * PRELOADER
  */
 
-const preloader = document.querySelector("[data-preloader]");
 
-window.addEventListener("load", function () {
+
+/*window.addEventListener("load", function () {
   preloader.classList.add("loaded");
   document.body.classList.add("loaded");
-});
+});*/
+
+
+
+
+
+
+
 
 
 
 /**
  * MOBILE NAV TOGGLE
  */
+let colors = ["hsl(177, 39%, 72%)","hsl(41, 99%, 64%)","hsl(245, 100%, 90%)","hsl(19, 97%, 85%)","hsl(19, 97%, 85%)","white"]
 
-const navbar = document.querySelector("[data-navbar]");
-const navToggler = document.querySelector("[data-nav-toggler]");
 
 const toggleNavbar = function () { navbar.classList.toggle("active"); }
 
-navToggler.addEventListener("click", toggleNavbar);
+btn.addEventListener("click", toggleNavbar);
 
+
+  cards.forEach((card)=>{
+    card.style.backgroundColor =  colors[Math.floor(Math.random()*colors.length)]
+  })
 
 
 /**
@@ -46,7 +63,7 @@ navToggler.addEventListener("click", toggleNavbar);
  * active header when window scrolled to 50px
  */
 
-const header = document.querySelector("[data-header]");
+
 
 const activeHeader = function () {
   window.scrollY > 50 ? header.classList.add("active")
